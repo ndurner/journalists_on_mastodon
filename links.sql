@@ -11,7 +11,7 @@ update journalists set Link = 'https://' + SUBSTRING(Mastodon, CHARINDEX('@', Ma
 
 -- Mastodon handles without leading @
 update journalists set Link = 'https://' + SUBSTRING(Mastodon, CHARINDEX('@', Mastodon) + 1, len(Mastodon)) + '/@' + SUBSTRING(Mastodon, 0, CHARINDEX('@', Mastodon))  from journalists
-	where Mastodon not like '@%' and Mastodon like '%@%';
+	where Mastodon not like '@%' and Mastodon like '%@%' and Mastodon not like 'http%';
 
 
 
