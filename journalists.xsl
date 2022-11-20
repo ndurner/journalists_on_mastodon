@@ -35,12 +35,19 @@
         </header>
         <p>
             Mastodon:
-            <a>
-                <xsl:attribute name="href">
-                    <xsl:value-of select="Link" />
-                </xsl:attribute>
-                <xsl:value-of select="Mastodon" />
-            </a>
+            <xsl:choose>
+                <xsl:when test="string-length(Link) > 0">
+                    <a>
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="Link" />
+                        </xsl:attribute>
+                        <xsl:value-of select="Mastodon" />
+                    </a>        
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="Mastodon" />
+                </xsl:otherwise>
+            </xsl:choose>
             | Twitter:
             <a>
                 <xsl:attribute name="href">
