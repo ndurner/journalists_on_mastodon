@@ -1,3 +1,5 @@
+alter table Download add [Link] nvarchar(MAX);
+
 -- fix data
 update journalists set Mastodon = trim(Mastodon);
 update journalists set Mastodon = '@taylorlorenz@mastodon.social' where Mastodon = '@taylorlorenz.mastodon.social';
